@@ -8,27 +8,36 @@ en_upper_zen = ['Ａ', 'Ｂ', 'Ｃ', 'Ｄ', 'Ｅ', 'Ｆ', 'Ｇ', 'Ｈ', 'Ｉ', '
 en_lower_zen = ['ａ', 'ｂ', 'ｃ', 'ｄ', 'ｅ', 'ｆ', 'ｇ', 'ｈ', 'ｉ', 'ｊ', 'ｋ', 'ｌ', 'ｍ', 'ｎ', 'ｏ', 'ｐ', 'ｑ', 'ｒ', 'ｓ', 'ｔ', 'ｕ', 'ｖ', 'ｗ', 'ｘ', 'ｙ', 'ｚ']
 
 
-def randomize(moji):
+
+def randomize(moji, hira=True, kata=True, lower=True, upper=True, lower_zen=True, upper_zen=True):
     text = ""
 
     for i in moji:
         x = random.randint(0,1)
 
-        if i in hiragana and x >= 1:
+        if i in hiragana and hira == True and x >= 1:
             place = hiragana.index(i)
             text += katakana[place]
 
-        elif i in katakana and x >=1:
+        elif i in katakana and kata == True and x >=1:
             place = katakana.index(i)
             text += hiragana[place]
 
-        elif i in en_upper and x >=1:
+        elif i in en_upper and upper == True and x >=1:
             place = en_upper.index(i)
             text += en_upper_zen[place]
 
-        elif i in en_lower and x >=1:
+        elif i in en_lower and lower == True and x >=1:
             place = en_lower.index(i)
             text += en_lower_zen[place]
+
+        elif i in en_upper_zen and upper_zen == True and x >=1:
+            place = en_upper_zen.index(i)
+            text += en_upper[place]
+        
+        elif i in en_lower_zen and lower_zen == True and x >=1:
+            place = en_lower_zen.index(i)
+            text += en_lower[place]
 
         else:
             text += i
