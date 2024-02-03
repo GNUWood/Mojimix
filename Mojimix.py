@@ -9,7 +9,7 @@ en_lower_zen = ['ａ', 'ｂ', 'ｃ', 'ｄ', 'ｅ', 'ｆ', 'ｇ', 'ｈ', 'ｉ', '
 
 
 
-def randomize(moji, hira=True, kata=True, lower=True, upper=True, lower_zen=True, upper_zen=True):
+def randomizer(moji, hira=True, kata=True, lower=True, upper=True, lower_zen=True, upper_zen=True):
     text = ""
 
     for i in moji:
